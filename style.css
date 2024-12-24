@@ -1,125 +1,173 @@
+/* Importing the Poppins font family from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Global reset for margin, padding, and box-sizing. Also setting the default font family to Poppins */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  box-sizing: border-box; /* Set box-sizing to border-box to include padding and border in the element's total width and height */
+  font-family: 'Poppins', sans-serif; /* Set the font family to Poppins */
 }
+
+/* Styling for the body: centers content and sets the background color */
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: #000;
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+  background: #000; /* Set background color to black */
 }
+
+/* Styling for the wrapper, which contains the form */
 .wrapper {
-  position: relative;
-  width: 400px;
-  height: 500px;
-  background: #000;
-  box-shadow: 0 0 50px #0ef;
-  border-radius: 20px;
-  padding: 40px;
-  overflow: hidden;
+  position: relative; /* Set position to relative for absolute positioning of child elements */
+  width: 400px; /* Set width of the wrapper */
+  height: 500px; /* Set height of the wrapper */
+  background: #000; /* Set background color to black */
+  box-shadow: 0 0 50px #0ef; /* Apply a glowing effect around the wrapper */
+  border-radius: 20px; /* Round the corners of the wrapper */
+  padding: 40px; /* Add padding inside the wrapper */
+  overflow: hidden; /* Hide any overflowing content */
 }
+
+/* Add a glowing animation effect on hover */
 .wrapper:hover {
-  animation: animate 1s linear infinite;
+  animation: animate 1s linear infinite; /* Trigger animation when hovering */
 }
+
+/* Keyframes for the glowing animation (hue rotation effect) */
 @keyframes animate {
   100% {
-    filter: hue-rotate(360deg);
+    filter: hue-rotate(360deg); /* Apply a full 360-degree hue rotation */
   }
 }
+
+/* Styling for the form wrapper to center the form content */
 .form-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  transition: 1s ease-in-out;
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  width: 100%; /* Make it span the full width */
+  height: 100%; /* Make it span the full height */
+  transition: 1s ease-in-out; /* Smooth transition for any changes */
 }
+
+/* Animation for sign-in form, making it slide up when active */
 .wrapper.active .form-wrapper.sign-in {
-  transform: translateY(-450px);
+  transform: translateY(-450px); /* Slide the sign-in form up by 450px */
 }
+
+/* Positioning for the sign-up form outside the wrapper initially */
 .wrapper .form-wrapper.sign-up {
-  position: absolute;
-  top: 450px;
-  left: 0;
+  position: absolute; /* Position the sign-up form absolutely inside the wrapper */
+  top: 450px; /* Position it below the sign-in form */
+  left: 0; /* Align to the left */
 }
+
+/* Animation for sign-up form, making it slide up when active */
 .wrapper.active .form-wrapper.sign-up {
-  transform: translateY(-450px);
+  transform: translateY(-450px); /* Slide the sign-up form up by 450px */
 }
+
+/* Styling for the form's title (h2) */
 h2 {
-  font-size: 30px;
-  color: #fff;
-  text-align: center;
+  font-size: 30px; /* Set font size for the title */
+  color: #fff; /* Set text color to white */
+  text-align: center; /* Center align the title */
 }
+
+/* Styling for input fields inside the form */
 .input-group {
-  position: relative;
-  margin: 30px 0;
-  border-bottom: 2px solid #fff;
+  position: relative; /* Set position to relative for absolute positioning of labels */
+  margin: 30px 0; /* Add margin between input fields */
+  border-bottom: 2px solid #fff; /* Add a white bottom border to input fields */
 }
+
+/* Styling for the label inside each input field */
 .input-group label {
-  position: absolute;
-  top: 50%;
-  left: 5px;
-  transform: translateY(-50%);
-  font-size: 16px;
-  color: #fff;
-  pointer-events: none;
-  transition: .5s;
+  position: absolute; /* Position label absolutely inside the input field */
+  top: 50%; /* Vertically center the label */
+  left: 5px; /* Slightly offset the label from the left edge */
+  transform: translateY(-50%); /* Adjust for perfect vertical centering */
+  font-size: 16px; /* Set label font size */
+  color: #fff; /* Set label color to white */
+  pointer-events: none; /* Prevent label from interfering with user interaction */
+  transition: .5s; /* Smooth transition when label moves */
 }
+
+/* Styling for the input field */
 .input-group input {
-  width: 320px;
-  height: 40px;
-  font-size: 16px;
-  color: #fff;
-  padding: 0 5px;
-  background: transparent;
-  border: none;
-  outline: none;
+  width: 320px; /* Set width of input field */
+  height: 40px; /* Set height of input field */
+  font-size: 16px; /* Set font size */
+  color: #fff; /* Set text color to white */
+  padding: 0 5px; /* Add padding inside the input field */
+  background: transparent; /* Set background to transparent */
+  border: none; /* Remove border */
+  outline: none; /* Remove outline on focus */
 }
+
+/* Move the label up when the input field is focused or has a valid value */
 .input-group input:focus~label,
 .input-group input:valid~label {
-  top: -5px;
+  top: -5px; /* Move label above the input field */
 }
+
+/* Styling for the remember me checkbox section */
 .remember {
-  margin: -5px 0 15px 5px;
+  margin: -5px 0 15px 5px; /* Add some margin around the checkbox */
 }
+
+/* Styling for the remember me label */
 .remember label {
-  color: #fff;
-  font-size: 14px;
+  color: #fff; /* Set label color to white */
+  font-size: 14px; /* Set font size */
 }
+
+/* Styling for the remember me checkbox input */
 .remember label input {
-  accent-color: #0ef;
+  accent-color: #0ef; /* Set accent color for checkbox (highlight color) */
 }
+
+/* Styling for the submit button */
 button {
-  position: relative;
-  width: 100%;
-  height: 40px;
-  background: #0ef;
-  box-shadow: 0 0 10px #0ef;
-  font-size: 16px;
-  color: #000;
-  font-weight: 500;
-  cursor: pointer;
-  border-radius: 30px;
-  border: none;
-  outline: none;
+  position: relative; /* Set position to relative for absolute positioning of elements */
+  width: 100%; /* Make the button span the full width */
+  height: 40px; /* Set button height */
+  background: #0ef; /* Set background color to a neon green */
+  box-shadow: 0 0 10px #0ef; /* Add a glowing effect around the button */
+  font-size: 16px; /* Set font size */
+  color: #000; /* Set text color to black */
+  font-weight: 500; /* Set font weight */
+  cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+  border-radius: 30px; /* Round the corners of the button */
+  border: none; /* Remove border */
+  outline: none; /* Remove outline on focus */
 }
+
+/* Styling for the sign-up link text */
 .signUp-link {
-  font-size: 14px;
-  text-align: center;
-  margin: 15px 0;
+  font-size: 14px; /* Set font size */
+  text-align: center; /* Center align the link */
+  margin: 15px 0; /* Add margin around the link */
 }
+
+/* Styling for the sign-up link paragraph */
 .signUp-link p {
-  color: #fff;
+  color: #fff; /* Set text color to white */
 }
+
+/* Styling for the actual sign-up link */
 .signUp-link p a {
-  color: #0ef;
-  text-decoration: none;
-  font-weight: 500;
+  color: #0ef; /* Set link color to neon green */
+  text-decoration: none; /* Remove underline from the link */
+  font-weight: 500; /* Set font weight */
 }
+
+/* Styling for the sign-up link on hover */
 .signUp-link p a:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* Underline the link on hover */
 }
+
+
+
